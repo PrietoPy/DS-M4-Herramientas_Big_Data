@@ -230,7 +230,7 @@ SELECT
 	Sucursal,
 	Sector,
 	Cargo,
-	REPLACE(Salario. ',', '.')
+	REPLACE(Salario, ',', '.')
 FROM integrador.empleado;
 
 DROP TABLE IF EXISTS sucursal;
@@ -280,6 +280,7 @@ SELECT
 	fecha,
 	anio,
 	mes,
+	dia,
 	trimestre,
 	semana,
 	dia_nombre,
@@ -337,18 +338,19 @@ PARTITIONED BY(month INT)
 LOCATION '/user/instructor/data/bikeshare/trips_part/';
 
 -- Ejecutar de 1 a 12
-INSERT INTO trips_part
-PARTITION(month=12)
-SELECT bikeid,
-	checkout_time,
-	duration_minutes,
-	end_station_id,
-	end_station_name,
-	start_station_id,
-	start_station_name,
-	start_time,
-	subscriber_type,
-	trip_id,
-	year_modif
-FROM trips_ok
-WHERE month_modif = 12;
+--INSERT INTO trips_part
+--PARTITION(month=12)
+--SELECT bikeid,
+--	checkout_time,
+--	duration_minutes,
+--	end_station_id,
+--	end_station_name,
+--	start_station_id,
+--	start_station_name,
+--	start_time,
+--	subscriber_type,
+--	trip_id,
+--	year_modif
+--FROM trips_ok
+--WHERE month_modif = 12;
+
